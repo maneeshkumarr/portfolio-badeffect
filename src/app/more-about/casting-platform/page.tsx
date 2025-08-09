@@ -2,10 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Modal from 'react-modal';
-import { motion } from 'framer-motion';
-
-Modal.setAppElement('body');
+import { motion, AnimatePresence } from 'framer-motion';
 
 const imageList = [
   'splash-1.png', 'splash-2.png', 'splash-3.png', 'login.png',
@@ -45,6 +42,7 @@ export default function CastingPlatformDetails() {
         transition={{ duration: 0.8 }}
         className="max-w-7xl mx-auto space-y-28"
       >
+        {/* Header */}
         <header className="text-center space-y-6">
           <h1 className="text-6xl font-black tracking-tight bg-gradient-to-r from-[#ffd700] via-[#ff5d5d] to-[#ff0040] text-transparent bg-clip-text animate-gradient-x">
             Casting Platform
@@ -54,6 +52,7 @@ export default function CastingPlatformDetails() {
           </p>
         </header>
 
+        {/* Tech Stack */}
         <section className="text-center">
           <h2 className="text-3xl font-bold text-yellow-400 mb-6 uppercase tracking-wide">Tech Stack</h2>
           <div className="flex flex-wrap justify-center gap-4">
@@ -65,6 +64,7 @@ export default function CastingPlatformDetails() {
           </div>
         </section>
 
+        {/* Mobile Mockup Gallery */}
         <section>
           <h2 className="text-3xl font-bold mb-12 text-center text-yellow-300 uppercase tracking-wider">Mobile Mockup Gallery</h2>
           <motion.div
@@ -96,6 +96,7 @@ export default function CastingPlatformDetails() {
           </motion.div>
         </section>
 
+        {/* Highlights */}
         <section className="text-center">
           <h2 className="text-3xl font-bold text-yellow-400 mb-6 uppercase tracking-wider">Highlights</h2>
           <ul className="text-gray-300 text-lg space-y-3 max-w-3xl mx-auto">
@@ -106,6 +107,7 @@ export default function CastingPlatformDetails() {
           </ul>
         </section>
 
+        {/* Buttons */}
         <section className="flex justify-center gap-8 mt-14">
           <a
             href="https://github.com/username/casting-platform"
@@ -124,30 +126,42 @@ export default function CastingPlatformDetails() {
         </section>
       </motion.div>
 
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        className="fixed inset-0 z-50 flex items-center justify-center p-6"
-        overlayClassName="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
-      >
-        <div className="relative max-w-6xl w-full max-h-[90vh] overflow-auto rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl">
-          <button
+      {/* Custom Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={closeModal}
-            className="fixed top-6 right-6 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-500 z-50"
           >
-            ✕
-          </button>
-          {activeImage && (
-            <Image
-              src={activeImage}
-              alt="Fullscreen Mockup"
-              width={1600}
-              height={1000}
-              className="w-full h-auto object-contain rounded-2xl"
-            />
-          )}
-        </div>
-      </Modal>
+            <motion.div
+              className="relative max-w-6xl w-full max-h-[90vh] overflow-auto rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()} // prevent close on inner click
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-6 right-6 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-500 z-50"
+              >
+                ✕
+              </button>
+              {activeImage && (
+                <Image
+                  src={activeImage}
+                  alt="Fullscreen Mockup"
+                  width={1600}
+                  height={1000}
+                  className="w-full h-auto object-contain rounded-2xl"
+                />
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
