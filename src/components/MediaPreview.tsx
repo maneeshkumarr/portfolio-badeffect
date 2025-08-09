@@ -1,33 +1,28 @@
-'use client'
-import Image from 'next/image'
-
-type Props = {
+type MediaPreviewProps = {
   src: string
-  alt: string
   type: 'image' | 'video'
+  alt?: string
 }
 
-export default function MediaPreview({ src, alt, type }: Props) {
+export default function MediaPreview({ src, type, alt }: MediaPreviewProps) {
+  if (type === 'video') {
+    return (
+      <video
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-auto object-cover rounded-lg"
+      />
+    )
+  }
+
   return (
-    <div className="relative h-[220px] sm:h-[260px] overflow-hidden">
-      {type === 'video' ? (
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover object-top group-hover:scale-105 transition duration-500"
-        />
-      )}
-      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition" />
-    </div>
+    <img
+      src={src}
+      alt={alt || 'Media preview'}
+      className="w-full h-auto object-cover rounded-lg"
+    />
   )
 }

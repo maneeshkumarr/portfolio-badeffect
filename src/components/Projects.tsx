@@ -4,11 +4,21 @@ import { motion } from 'framer-motion'
 import MediaPreview from './MediaPreview'
 import Link from 'next/link'
 
-const featuredProjects = [
-{
-  
+type ProjectType = 'image' | 'video'
+
+type Project = {
+  title: string
+  description: string
+  media: string
+  type: ProjectType
+  moreLink?: string
+}
+
+const featuredProjects: Project[] = [
+  {
     title: 'Casting platform',
-    description:'A professional mobile app for casting and auditions.Built with Flutter for the frontend and Express.js for the backend.Uses a MySQL database for secure and scalable data management.',
+    description:
+      'A professional mobile app for casting and auditions. Built with Flutter for the frontend and Express.js for the backend. Uses a MySQL database for secure and scalable data management.',
     media: '/purchase.mp4',
     type: 'video',
     moreLink: '/more-about/casting-platform',
@@ -16,7 +26,7 @@ const featuredProjects = [
   {
     title: 'Inventory Management',
     description:
-      'Developed an Inventory Management website using Spring Boot, Next.js (TypeScript), and MySQL. Features include product tracking, stock updates, and secure CRUD operations with a responsive user interface.',
+      'Developed an Inventory Management website using Spring Boot, Next.js (TypeScript), and MySQL. Features include product tracking, stock updates, and secure CRUD operations with a responsive UI.',
     media: '/inventory.mp4',
     type: 'video',
     moreLink: '/more-about/casting-platform',
@@ -35,11 +45,11 @@ const featuredProjects = [
       'A Next.js + Express.js platform where restaurants connect with helpers & NGOs to donate surplus food to the needy. Built with TypeScript, Tailwind CSS, and MongoDB.',
     media: '/Food-Rescue.mp4',
     type: 'video',
-    moreLink: '/more-about/casting-platform'
+    moreLink: '/more-about/casting-platform',
   },
 ]
 
-const miniProjects = [
+const miniProjects: Project[] = [
   {
     title: 'Rock Paper Scissors Game',
     description:
@@ -86,7 +96,11 @@ export default function Projects() {
             transition={{ type: 'spring', stiffness: 200 }}
             className="group rounded-xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl"
           >
-            <MediaPreview src={proj.media} alt={proj.title} type={proj.type} />
+            <MediaPreview
+              src={proj.media}
+              alt={proj.title}
+              type={proj.type}
+            />
             <div className="p-6 space-y-4">
               <h3 className="text-2xl font-bold text-[#FFD700]">{proj.title}</h3>
               <p className="text-gray-300">{proj.description}</p>
@@ -101,6 +115,7 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+
       {/* Mini Projects Section */}
       <h3 className="relative z-10 text-3xl font-bold text-center mt-24 mb-10 text-[#FFD700]">
         Mini Projects
@@ -114,7 +129,11 @@ export default function Projects() {
             transition={{ type: 'spring', stiffness: 200 }}
             className="group rounded-xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl"
           >
-            <MediaPreview src={proj.media} alt={proj.title} type={proj.type} />
+            <MediaPreview
+              src={proj.media}
+              alt={proj.title}
+              type={proj.type}
+            />
             <div className="p-6 space-y-4">
               <h3 className="text-2xl font-bold text-[#FFD700]">{proj.title}</h3>
               <p className="text-gray-300">{proj.description}</p>
