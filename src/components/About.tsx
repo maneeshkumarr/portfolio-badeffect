@@ -1,5 +1,9 @@
 'use client'
 
+import Calendar from "./Calendar";
+
+
+
 const About = () => (
   <section
     id="about"
@@ -17,17 +21,21 @@ const About = () => (
         About Me
       </h2>
 
-      <div className="relative bg-white/5 backdrop-blur-sm rounded-xl px-6 py-8 shadow-md">
+      <div className="relative bg-white/5 backdrop-blur-sm rounded-xl px-6 py-8 shadow-md mb-12">
         <p className="text-gray-300 text-lg leading-relaxed">
           I’m a passionate full-stack developer focused on building products that solve real problems. <br />
-          My current stack includes <span className="text-[#FFD700] font-medium">JavaScript</span>,{' '}
-          <span className="text-[#FFD700] font-medium">TypeScript</span>,{' '}
-          <span className="text-[#FFD700] font-medium">Node.js</span>, and{' '}
+          My current stack includes{" "}
+          <span className="text-[#FFD700] font-medium">JavaScript</span>,{" "}
+          <span className="text-[#FFD700] font-medium">TypeScript</span>,{" "}
+          <span className="text-[#FFD700] font-medium">Node.js</span>, and{" "}
           <span className="text-[#FFD700] font-medium">Next.js</span>.
         </p>
       </div>
+
+    <Calendar/>
+  
     </div>
   </section>
-)
+);
 
-export default About
+export default About;
