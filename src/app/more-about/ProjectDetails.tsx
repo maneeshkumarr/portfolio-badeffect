@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion'; // Added Variants import
 
 export interface ProjectDetailsProps {
   title: string;
@@ -98,7 +98,8 @@ export default function ProjectDetails({
     return <LoadingSpinner />;
   }
 
-  const containerVariants = {
+  // Explicitly type variants as Variants from framer-motion
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -110,7 +111,7 @@ export default function ProjectDetails({
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 60, opacity: 0 },
     visible: {
       y: 0,
