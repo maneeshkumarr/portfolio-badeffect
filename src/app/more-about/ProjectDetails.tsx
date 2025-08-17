@@ -169,12 +169,12 @@ export default function ProjectDetails({
           </div>
         </motion.section>
 
-        {/* Gallery */}
+        {/* Gallery - Larger Images for Better Visibility */}
         <motion.section variants={itemVariants}>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-amber-400 uppercase tracking-wider">
             Project Gallery
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
             {imageList.map((img, index) => {
               const imageSrc = `${imagePath}${img}`;
               const hasError = imageLoadErrors.has(img);
@@ -186,14 +186,14 @@ export default function ProjectDetails({
                   initial={{ opacity: 0, y: 60, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.03, y: -5 }}
+                  whileHover={{ scale: 1.02, y: -8 }}
                   viewport={{ once: true, amount: 0.1 }}
                   onClick={() => !hasError && openModal(imageSrc)}
                   role="button"
                   aria-label={`View ${title} screenshot ${index + 1}`}
                 >
                   {hasError ? (
-                    <div className="w-full h-64 flex items-center justify-center bg-gradient-to-br from-red-900/60 to-amber-900/60 rounded-xl">
+                    <div className="w-full h-80 flex items-center justify-center bg-gradient-to-br from-red-900/60 to-amber-900/60 rounded-xl">
                       <div className="text-center text-amber-200">
                         <div className="text-4xl mb-2" aria-hidden="true">📷</div>
                         <p className="text-sm">Image not available</p>
@@ -202,21 +202,34 @@ export default function ProjectDetails({
                   ) : (
                     <>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                      <Image
-                        src={imageSrc}
-                        alt={`${title} Screenshot ${index + 1}`}
-                        width={800}
-                        height={600}
-                        className="w-full h-64 object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
-                        onError={() => handleImageError(img)}
-                        loading="lazy"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={80}
-                      />
-                      <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                        <span className="text-sm font-semibold bg-red-900/80 backdrop-blur-sm px-3 py-1 rounded-full border border-amber-500/50">
+                      
+                      {/* Larger Image Container for Better Content Visibility */}
+                      <div className="relative w-full min-h-[300px] max-h-[500px] bg-black/20 rounded-xl overflow-hidden">
+                        <Image
+                          src={imageSrc}
+                          alt={`${title} Screenshot ${index + 1}`}
+                          fill
+                          className="object-contain transition-transform duration-500 group-hover:scale-105 p-2"
+                          onError={() => handleImageError(img)}
+                          loading="lazy"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          quality={85}
+                          style={{
+                            objectFit: 'contain',
+                            background: 'transparent'
+                          }}
+                        />
+                      </div>
+                      
+                      <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                        <span className="text-sm font-semibold bg-red-900/80 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-500/50">
                           Click to enlarge
                         </span>
+                      </div>
+                      
+                      {/* Image counter badge */}
+                      <div className="absolute top-4 right-4 bg-amber-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full border border-amber-400/50">
+                        {index + 1} / {imageList.length}
                       </div>
                     </>
                   )}
