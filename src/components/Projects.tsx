@@ -18,7 +18,7 @@ const featuredProjects: Project[] = [
     title: 'Casting platform',
     description:
       'A professional mobile app for casting and auditions. Built with Flutter for the frontend and Express.js for the backend. Uses a MySQL database for secure and scalable data management.',
-    media: '/purchase.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422264/purchase_y1gur0.mp4',
     type: 'video',
     moreLink: '/more-about/casting-platform',
   },
@@ -26,7 +26,7 @@ const featuredProjects: Project[] = [
     title: 'Inventory Management',
     description:
       'Developed an Inventory Management website using Spring Boot, Next.js (TypeScript), and MySQL. Features include product tracking, stock updates, and secure CRUD operations with a responsive UI.',
-    media: '/inventory.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422374/inventory_bkfgjy.mp4',
     type: 'video',
     moreLink: '/more-about/inventory-management',
   },
@@ -34,7 +34,7 @@ const featuredProjects: Project[] = [
     title: 'Community Hub (Samriddhi Setu)',
     description:
       'A full-stack social platform built with Next.js, TypeScript, Tailwind CSS, Express.js, and MySQL. Users can create, like, comment, share, and delete posts.',
-    media: '/community.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755423554/community_k7vov6.mp4',
     type: 'video',
     moreLink: '/more-about/samriddi-setu',
   },
@@ -42,7 +42,7 @@ const featuredProjects: Project[] = [
     title: 'Food Rescue App',
     description:
       'A Next.js + Express.js platform where restaurants connect with helpers & NGOs to donate surplus food to the needy. Built with TypeScript, Tailwind CSS, and MongoDB.',
-    media: '/Food-Rescue.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422392/Food-Rescue_j2xavl.mp4',
     type: 'video',
     moreLink: '/more-about/food-rescue',
   },
@@ -50,7 +50,7 @@ const featuredProjects: Project[] = [
     title: 'Event Management',
     description:
       'A-Z Wedding Management Website is a full-stack event booking platform built with TypeScript, Next.js, Express.js, and MongoDB. Users can explore and book complete wedding services, from venue to decor, in one place.',
-    media: '/event-management.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421818/event-management_ecv7pw.mp4',
     type: 'video',
     moreLink: '/more-about/event-management',
   },
@@ -61,7 +61,7 @@ const miniProjects: Project[] = [
     title: 'Rock Paper Scissors Game',
     description:
       'A simple web-based Rock Paper Scissors game built with vanilla JavaScript to understand DOM manipulation and event handling.',
-    media: '/rock-paper.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421771/rock-paper_f8lbzv.mp4',
     type: 'video',
     moreLink: '/more-about/rock-paper-scissors',
   },
@@ -69,7 +69,7 @@ const miniProjects: Project[] = [
     title: 'Purchase Bill Generator',
     description:
       'A C# web app built with Razor Pages, Bootstrap, and SQLite. Supports rate change, quantity tracking, and invoice-style bill generation.',
-    media: '/purchase.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422264/purchase_y1gur0.mp4',
     type: 'video',
     moreLink: '/more-about/purchase-bill-generator',
   },
