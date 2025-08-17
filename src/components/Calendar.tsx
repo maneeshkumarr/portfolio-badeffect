@@ -26,7 +26,7 @@ export default function Calendar() {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const res = await fetch('/api/leetcode'); // backend proxy
+        const res = await fetch('leetcode-stats-api.herokuapp.com/ManeeshGowda/'); // backend proxy
         const json = await res.json();
         setData(json);
       } catch (error) {
@@ -81,7 +81,7 @@ export default function Calendar() {
     <div className="mt-12">
       {/* Username */}
       <h3 className="text-2xl font-semibold mb-1 text-green-400">
-        ManeeshGowda
+        ManeeshGowda /
       </h3>
       <p className="text-gray-400 mb-4">LeetCode Activity</p>
 
