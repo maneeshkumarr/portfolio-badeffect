@@ -39,8 +39,6 @@ export default function ProjectDetails({
   highlights,
   imageList,
   imagePath,
-  githubUrl,
-  liveUrl
 }: ProjectDetailsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
