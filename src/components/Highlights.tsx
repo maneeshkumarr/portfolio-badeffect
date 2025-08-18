@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FaBriefcase, FaAward, FaMedal, FaHandsHelping } from "react-icons/fa"
+import {  FaAward, FaMedal } from "react-icons/fa"
 
 export default function UltimatePortfolio() {
   const experiences = [
