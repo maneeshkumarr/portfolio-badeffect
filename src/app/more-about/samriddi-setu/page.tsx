@@ -36,8 +36,8 @@ const communityHubData = {
   ],
   imageList: imageList,
   imagePath: "/samriddi_setu/",
-  githubUrl: "https://github.com/username/community-hub",
-  liveUrl: "https://community-hub-demo.vercel.app"
+  githubUrl: "https://github.com/maneeshkumarr/Samriddhi-Setu-Community-Hub.git",
+  //liveUrl: "https://community-hub-demo.vercel.app"
 };
 
 export default function CommunityHubPage() {
@@ -50,7 +50,7 @@ export default function CommunityHubPage() {
       imageList={communityHubData.imageList}
       imagePath={communityHubData.imagePath}
       githubUrl={communityHubData.githubUrl}
-      liveUrl={communityHubData.liveUrl}
+      //liveUrl={communityHubData.liveUrl}
     />
   );
 }

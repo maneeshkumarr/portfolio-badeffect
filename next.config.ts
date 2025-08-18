@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: [
+      "streak-stats.demolab.com",
+      "leetcard.jacoblin.cool",
+      "geeks-for-geeks-stats-api.vercel.app",
+    ],
+  },
 };
 
 export default nextConfig;

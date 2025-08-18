@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation'
 
 export default function Hero() {
   return (
-    <section className="relative flex items-center justify-center min-h-screen overflow-hidden px-6 py-24 bg-[#180202] font-body text-white">
+    <section className="relative flex items-center justify-center min-h-screen overflow-hidden px-6 py-9 bg-[#180202] font-body text-white">
       {/* 🔥 Ambient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#2b0505] via-[#430a0a] to-[#0d0101]" />
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
@@ -62,14 +62,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="relative h-[420px] md:h-[520px] flex items-end justify-center"
+          className="relative h-[550px] md:h-[650px] flex items-end justify-center"
         >
           <Image
             src="/me.png"
             alt="Maneesh Portrait"
             fill
             priority
-            className="object-contain object-bottom drop-shadow-[0_25px_70px_rgba(255,0,64,0.35)] hover:scale-[1.02] transition-transform duration-500"
+            className="object-contain object-bottom drop-shadow-[0_45px_120px_rgba(255,0,64,0.45)] rounded-2xl"
           />
         </motion.div>
 
@@ -130,7 +130,7 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-3 rounded-full border border-[#ffd700] text-[#ffd700] font-semibold hover:bg-[#ffd700]/10 transition-all duration-300"
             >
-              Hire Me
+              Connect
             </motion.a>
           </motion.div>
         </motion.div>

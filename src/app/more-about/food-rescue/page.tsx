@@ -31,8 +31,8 @@ const foodRescueData = {
   ],
   imageList: imageList,
   imagePath: "/Food_Rescue/",
-  githubUrl: "https://github.com/username/food-rescue-app",
-  liveUrl: "https://food-rescue-demo.vercel.app" // Uncomment if you have a live demo
+  githubUrl: "https://github.com/maneeshkumarr/Food-Rescue-App.git",
+  //liveUrl: "https://food-rescue-demo.vercel.app" // Uncomment if you have a live demo
 };
 
 export default function FoodRescuePage() {
@@ -45,7 +45,7 @@ export default function FoodRescuePage() {
       imageList={foodRescueData.imageList}
       imagePath={foodRescueData.imagePath}
       githubUrl={foodRescueData.githubUrl}
-      liveUrl={foodRescueData.liveUrl}
+     // liveUrl={foodRescueData.liveUrl}
     />
   );
 }

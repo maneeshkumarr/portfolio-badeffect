@@ -18,7 +18,7 @@ const featuredProjects: Project[] = [
     title: 'Casting platform',
     description:
       'A professional mobile app for casting and auditions. Built with Flutter for the frontend and Express.js for the backend. Uses a MySQL database for secure and scalable data management.',
-    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422264/purchase_y1gur0.mp4',
+    media: 'https://res.cloudinary.com/dvgxdgrgo/video/upload/v1755537305/InShot_20250818_221624696_1_kgttrj.mp4',
     type: 'video',
     moreLink: '/more-about/casting-platform',
   },
@@ -50,10 +50,18 @@ const featuredProjects: Project[] = [
     title: 'Event Management',
     description:
       'A-Z Wedding Management Website is a full-stack event booking platform built with TypeScript, Next.js, Express.js, and MongoDB. Users can explore and book complete wedding services, from venue to decor, in one place.',
-    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421818/event-management_ecv7pw.mp4',
+    media: '/event-management.mp4',
     type: 'video',
     moreLink: '/more-about/event-management',
   },
+  {
+    title: 'Community Hub (Samriddhi Setu)',
+    description:
+      'A full-stack social platform built with Next.js, TypeScript, Tailwind CSS, Express.js, and MySQL. Users can create, like, comment, share, and delete posts.',
+    media: '/community.mp4',
+    type: 'video',
+    moreLink: '/more-about/samriddi-setu',
+  }
 ]
 
 const miniProjects: Project[] = [
@@ -61,17 +69,15 @@ const miniProjects: Project[] = [
     title: 'Rock Paper Scissors Game',
     description:
       'A simple web-based Rock Paper Scissors game built with vanilla JavaScript to understand DOM manipulation and event handling.',
-    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421771/rock-paper_f8lbzv.mp4',
+    media: '/rock-paper.mp4',
     type: 'video',
-    moreLink: '/more-about/rock-paper-scissors',
   },
   {
     title: 'Purchase Bill Generator',
     description:
       'A C# web app built with Razor Pages, Bootstrap, and SQLite. Supports rate change, quantity tracking, and invoice-style bill generation.',
-    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422264/purchase_y1gur0.mp4',
+    media: '/purchase.mp4',
     type: 'video',
-    moreLink: '/more-about/purchase-bill-generator',
   },
   {
     title: 'Tic Tac Toe Game',
@@ -79,10 +85,8 @@ const miniProjects: Project[] = [
       'Classic Tic Tac Toe built using HTML, CSS, and JavaScript to explore DOM manipulation, game logic, and UI rendering.',
     media: '/tic-toc-toe.mp4',
     type: 'video',
-    moreLink: '/more-about/tic-tac-toe',
   },
 ]
-
 export default function Projects() {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -181,3 +185,4 @@ export default function Projects() {
     </section>
   )
 }
+// Hello

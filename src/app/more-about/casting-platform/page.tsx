@@ -35,8 +35,8 @@ const castingPlatformData = {
   ],
   imageList: imageList,
   imagePath: "/casting_platform/",
-  githubUrl: "https://github.com/username/casting-platform",
-  liveUrl: "https://casting-platform-demo.vercel.app" // Optional - remove if no live demo
+  githubUrl: "https://github.com/maneeshkumarr/casting-platform.git",
+  //liveUrl: "https://casting-platform-demo.vercel.app" // Optional - remove if no live demo
 };
 
 export default function CastingPlatformPage() {
@@ -49,7 +49,7 @@ export default function CastingPlatformPage() {
       imageList={castingPlatformData.imageList}
       imagePath={castingPlatformData.imagePath}
       githubUrl={castingPlatformData.githubUrl}
-      liveUrl={castingPlatformData.liveUrl}
+      //liveUrl={castingPlatformData.liveUrl}
     />
   );
 }

@@ -29,13 +29,13 @@ export default function InventoryManagementPage() {
       'Ip1.png',
       'Ip2.png', 
       'Ip3.png',
+      'Ip4.png',
       'Ip5.png',
-      'Ip8.png',
-      'Ip9.png'
+      'Ip6.png'
     ],
-    imagePath: "/Inventory_Management/",
-    githubUrl: "https://github.com/username/inventory-management",
-    liveUrl: "https://your-inventory-demo.vercel.app" // Uncomment when available
+    imagePath: "/inventory-management/",
+    githubUrl: "https://github.com/maneeshkumarr/Invenotry-Management.git",
+    //liveUrl: "https://your-inventory-demo.vercel.app" // Uncomment when available
   };
 
   return <ProjectDetails {...projectData} />;

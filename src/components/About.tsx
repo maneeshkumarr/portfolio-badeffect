@@ -1,42 +1,93 @@
-'use client'
+"use client"
 
-import Calendar from "./Calendar";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { SiGithub, SiLeetcode, SiGeeksforgeeks } from "react-icons/si"
 
+export default function AboutPage() {
+  const cardClasses =
+    "bg-[#2b0505] border border-[#ffd700]/30 shadow-[0_0_25px_rgba(255,215,0,0.3)] " +
+    "hover:shadow-[0_0_50px_rgba(255,215,0,0.6)] hover:border-[#ffd700]/50 " +
+    "transition-all rounded-2xl"
 
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#180202] via-[#2b0505] to-[#430a0a] p-8">
+      <h1 className="text-5xl font-extrabold text-center text-[#ffd700] mb-12 drop-shadow-lg">
+         My Coding Streaks
+      </h1>
 
-const About = () => (
-  <section
-    id="about"
-    className="relative py-24 px-6 text-white text-center font-body overflow-hidden bg-[#180202]"
-  >
-    {/* 🔥 Background Layers */}
-    <div className="absolute inset-0 bg-gradient-to-br from-[#2b0505] via-[#430a0a] to-[#0d0101] z-0" />
-    <div className="absolute inset-0 bg-noise opacity-[.03] pointer-events-none z-0" />
-    <div className="absolute -top-28 -left-32 w-[500px] h-[500px] bg-[#ff0040]/20 rounded-full blur-[180px] animate-blob z-0" />
-    <div className="absolute -bottom-32 -right-28 w-[400px] h-[400px] bg-[#ffd700]/15 rounded-full blur-[160px] animate-blob z-0" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        {/* GitHub */}
+        <Card className={cardClasses}>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl text-[#ffd700]">
+              <SiGithub className="text-2xl" /> GitHub
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="flex items-center gap-4">
+              <img
+                src="https://avatars.githubusercontent.com/maneeshkumarr"
+                alt="GitHub Avatar"
+                className="w-16 h-16 rounded-full border-2 border-[#ffd700] shadow-[0_0_15px_rgba(255,215,0,0.6)]"
+              />
+              <div>
+                <h2 className="text-lg font-semibold text-white">maneeshkumarr</h2>
+                <p className="text-sm text-gray-300">💻 Full-Stack Developer</p>
+              </div>
+            </div>
 
-    {/* ✨ Content */}
-    <div className="relative z-10 max-w-3xl mx-auto">
-      <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 bg-gradient-to-r from-[#ff0040] via-[#ffd700] to-[#ff0040] text-transparent bg-clip-text animate-gradient-x">
-        About Me
-      </h2>
+            {/* GitHub Streak with black non-streak days */}
+            <div className="rounded-xl overflow-hidden border border-[#ffd700]/40 shadow-[0_0_20px_rgba(255,215,0,0.4)]">
+              <img
+                src="https://streak-stats.demolab.com?user=maneeshkumarr&theme=dark&hide_border=true&ring=FFD700&fire=00FF00&currStreakLabel=FFD700&dates=000000"
+                alt="GitHub Streak"
+                className="w-full"
+              />
+            </div>
 
-      <div className="relative bg-white/5 backdrop-blur-sm rounded-xl px-6 py-8 shadow-md mb-12">
-        <p className="text-gray-300 text-lg leading-relaxed">
-          I’m a passionate full-stack developer focused on building products that solve real problems. <br />
-          My current stack includes{" "}
-          <span className="text-[#FFD700] font-medium">JavaScript</span>,{" "}
-          <span className="text-[#FFD700] font-medium">TypeScript</span>,{" "}
-          <span className="text-[#FFD700] font-medium">Node.js</span>, and{" "}
-          <span className="text-[#FFD700] font-medium">Next.js</span>.
-        </p>
+            {/* Contribution Graph */}
+            <div className="rounded-xl overflow-hidden border border-[#ffd700]/40 shadow-[0_0_20px_rgba(255,215,0,0.4)]">
+              <img
+                src="https://ghchart.rshah.org/maneeshkumarr"
+                alt="GitHub Contribution Graph"
+                className="w-full"
+              />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* LeetCode */}
+        <Card className={cardClasses}>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl text-[#ffd700]">
+              <SiLeetcode className="text-2xl" /> LeetCode
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <img
+              src="https://leetcard.jacoblin.cool/ManeeshGowda?theme=dark&border=0&ext=heatmap"
+              alt="LeetCode streak chart"
+              className="rounded-xl shadow-[0_0_20px_rgba(255,215,0,0.4)] w-full transition-all hover:shadow-[0_0_50px_rgba(255,215,0,0.6)]"
+            />
+          </CardContent>
+        </Card>
+
+        {/* GeeksforGeeks */}
+        <Card className={cardClasses}>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-xl text-[#ffd700]">
+              <SiGeeksforgeeks className="text-2xl" /> GeeksforGeeks
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <img
+              src="https://geeks-for-geeks-stats-card.vercel.app/?username=manishperm1aj&theme=dark"
+              alt="GFG streak chart"
+              className="rounded-xl shadow-[0_0_20px_rgba(255,215,0,0.4)] w-full transition-all hover:shadow-[0_0_50px_rgba(255,215,0,0.6)]"
+            />
+          </CardContent>
+        </Card>
       </div>
-
-    <Calendar/>
-    
-  
     </div>
-  </section>
-);
-
-export default About;
+  )
+}
