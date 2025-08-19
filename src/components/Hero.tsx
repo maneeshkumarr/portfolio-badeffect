@@ -65,7 +65,7 @@ export default function Hero() {
           className="relative h-[550px] md:h-[650px] flex items-end justify-center"
         >
           <Image
-            src="/me.png"
+            src="/maneesh.png"
             alt="Maneesh Portrait"
             fill
             priority
