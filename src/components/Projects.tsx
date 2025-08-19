@@ -58,7 +58,7 @@ const featuredProjects: Project[] = [
     title: 'Community Hub (Samriddhi Setu)',
     description:
       'A full-stack social platform built with Next.js, TypeScript, Tailwind CSS, Express.js, and MySQL. Users can create, like, comment, share, and delete posts.',
-    media: '/community.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755423554/community_k7vov6.mp4',
     type: 'video',
     moreLink: '/more-about/samriddi-setu',
   }
@@ -69,21 +69,21 @@ const miniProjects: Project[] = [
     title: 'Rock Paper Scissors Game',
     description:
       'A simple web-based Rock Paper Scissors game built with vanilla JavaScript to understand DOM manipulation and event handling.',
-    media: '/rock-paper.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421771/rock-paper_f8lbzv.mp4',
     type: 'video',
   },
   {
     title: 'Purchase Bill Generator',
     description:
       'A C# web app built with Razor Pages, Bootstrap, and SQLite. Supports rate change, quantity tracking, and invoice-style bill generation.',
-    media: '/purchase.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755422264/purchase_y1gur0.mp4',
     type: 'video',
   },
   {
     title: 'Tic Tac Toe Game',
     description:
       'Classic Tic Tac Toe built using HTML, CSS, and JavaScript to explore DOM manipulation, game logic, and UI rendering.',
-    media: '/tic-toc-toe.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755421772/tic-toc-toe_dgxpoi.mp4',
     type: 'video',
   },
 ]
