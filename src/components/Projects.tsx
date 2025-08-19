@@ -5,6 +5,7 @@ import Link from 'next/link'
 import MediaPreview from './MediaPreview'
 
 type ProjectType = 'image' | 'video'
+
 type Project = {
   title: string
   description: string
@@ -13,6 +14,7 @@ type Project = {
   moreLink?: string
 }
 
+// Featured Projects
 const featuredProjects: Project[] = [
   {
     title: 'Casting platform',
@@ -50,20 +52,19 @@ const featuredProjects: Project[] = [
     title: 'Event Management',
     description:
       'A-Z Wedding Management Website is a full-stack event booking platform built with TypeScript, Next.js, Express.js, and MongoDB. Users can explore and book complete wedding services, from venue to decor, in one place.',
-    media: '/event-management.mp4',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755584253/Screen_Recording_2025-08-14_140519_eou7y9.mp4',
     type: 'video',
-    moreLink: '/more-about/event-management',
   },
   {
-    title: 'Community Hub (Samriddhi Setu)',
+    title: 'Airbnb Clone',
     description:
-      'A full-stack social platform built with Next.js, TypeScript, Tailwind CSS, Express.js, and MySQL. Users can create, like, comment, share, and delete posts.',
-    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755423554/community_k7vov6.mp4',
+      'Working on an Airbnb clone website using React, Express, MongoDB, and Node.js. This project helps me understand full-stack development concepts and improve my skills, built while learning.',
+    media: 'https://res.cloudinary.com/dgndxx56k/video/upload/v1755584192/Screen_Recording_2025-08-19_113914_y3bquw.mp4',
     type: 'video',
-    moreLink: '/more-about/samriddi-setu',
-  }
+  },
 ]
 
+// Mini Projects
 const miniProjects: Project[] = [
   {
     title: 'Rock Paper Scissors Game',
@@ -87,12 +88,14 @@ const miniProjects: Project[] = [
     type: 'video',
   },
 ]
+
 export default function Projects() {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
   }
 
+  // Project Card
   const ProjectCard = ({
     proj,
     delay,
@@ -115,7 +118,7 @@ export default function Projects() {
         {/* Media */}
         <div className="relative w-full aspect-video overflow-hidden">
           <MediaPreview src={proj.media} alt={proj.title} type={proj.type} />
-          {showOverlay && (
+          {proj.moreLink && showOverlay && (
             <>
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all"></div>
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
@@ -135,13 +138,7 @@ export default function Projects() {
       </motion.div>
     )
 
-    return proj.moreLink ? (
-      <Link href={proj.moreLink} prefetch>
-        {CardContent}
-      </Link>
-    ) : (
-      CardContent
-    )
+    return proj.moreLink ? <Link href={proj.moreLink}>{CardContent}</Link> : CardContent
   }
 
   return (
@@ -185,4 +182,3 @@ export default function Projects() {
     </section>
   )
 }
-// Hello
