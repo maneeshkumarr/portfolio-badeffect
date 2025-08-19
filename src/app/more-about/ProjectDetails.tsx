@@ -23,7 +23,7 @@ const BackgroundElements = () => (
       <div className="absolute -bottom-8 left-20 w-72 h-72 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse delay-2000"></div>
       <div className="absolute bottom-0 right-10 w-64 h-64 bg-amber-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-3000"></div>
     </div>
-    <div 
+    <div
       className="absolute inset-0 opacity-8 pointer-events-none"
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='27' cy='27' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -39,15 +39,16 @@ export default function ProjectDetails({
   highlights,
   imageList,
   imagePath,
+  githubUrl,
+  liveUrl,
 }: ProjectDetailsProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeImage, setActiveImage] = useState<string | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [imageLoadErrors, setImageLoadErrors] = useState<Set<string>>(new Set());
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+  // Loader effect
+  useEffect(() => setIsLoaded(true), []);
 
   const openModal = useCallback((src: string) => {
     setActiveImage(src);
@@ -65,6 +66,7 @@ export default function ProjectDetails({
     setImageLoadErrors(prev => new Set([...prev, imageName]));
   }, []);
 
+  // Close modal on ESC
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isModalOpen) closeModal();
@@ -78,11 +80,12 @@ export default function ProjectDetails({
   // Motion Variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 } }
+    visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 } },
   };
+
   const itemVariants: Variants = {
     hidden: { y: 60, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   // Skeleton Loader
@@ -227,6 +230,37 @@ export default function ProjectDetails({
             ))}
           </div>
         </motion.section>
+
+        {/* Action Buttons */}
+        {(githubUrl || liveUrl) && (
+          <motion.section variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-10">
+            {githubUrl && (
+              <motion.a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-gradient-to-r from-red-800 to-amber-800 border border-amber-500/50 text-amber-100 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold shadow-lg hover:shadow-amber-500/40 hover:border-amber-400/80 transition-all duration-300 text-center"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center justify-center gap-2">📂 View Code</span>
+              </motion.a>
+            )}
+            {liveUrl && (
+              <motion.a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-gradient-to-r from-amber-600 to-red-600 border border-amber-400/60 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold shadow-lg hover:shadow-amber-500/50 transition-all duration-300 text-center"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center justify-center gap-2">🚀 Live Demo</span>
+              </motion.a>
+            )}
+          </motion.section>
+        )}
+
       </motion.div>
 
       {/* Modal */}
